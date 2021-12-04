@@ -27,10 +27,7 @@ def playBingo(boards):
                     if number == boards[i][y][x]:
                         boards[i][y][x] = -1
                         if checkBoards(boards[i]):
-                            print(boards[i])
-                            print(number)
                             winningBoards.append(boards[i])
-                            print(len(winningBoards))
                             if len(winningBoards) == len(boards):
                                 return winningBoards[-1], number  # part 2
                             # return boards[i], number  # part 1
