@@ -1,3 +1,5 @@
+import copy
+
 def makeBoards(board):
     newBoard = []
     for y in range(len(board)):
@@ -19,7 +21,7 @@ def checkBoards(board):
 
 
 def playBingo(boards):
-    winningBoards = []
+    winningIndexes = []
     for number in numbers:
         for i in range(len(boards)):
             for y in range(len(boards[i])):
@@ -27,11 +29,15 @@ def playBingo(boards):
                     if number == boards[i][y][x]:
                         boards[i][y][x] = -1
                         if checkBoards(boards[i]):
-                            winningBoards.append(boards[i])
-                            if len(winningBoards) == len(boards):
-                                return winningBoards[-1], number  # part 2
-                            # return boards[i], number  # part 1
+                            # return boards[i], number # part 1
 
+                            #########
+                            # part 2
+                            if i not in winningIndexes:
+                                winningIndexes.append(i)
+                                if len(winningIndexes) == 100:
+                                    return boards[winningIndexes[-1]], number
+                            ########
 
 def calculateNumber(board, number):
     totalNumber = 0
@@ -48,5 +54,4 @@ boards = [board.split('\n') for board in input[1:]]
 newBoards = [makeBoards(board) for board in boards]
 result = playBingo(newBoards)
 # print('day 4 part 1: ', calculateNumber(result[0], result[1]))
-print(result)
 print('day 4 part 2: ', calculateNumber(result[0], result[1]))
