@@ -1,5 +1,3 @@
-import copy
-
 def makeBoards(board):
     newBoard = []
     for y in range(len(board)):
