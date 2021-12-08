@@ -15,5 +15,5 @@ for i in range(min(crabs), max(crabs)):
 
     fuelCosts.append(int(fuel))
 
-print('day 7 part 1: ', min(fuelCosts))
+# print('day 7 part 1: ', min(fuelCosts))
 print('day 7 part 2: ', min(fuelCosts))
